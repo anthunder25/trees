@@ -7,6 +7,7 @@ struct uzel {
     uzel* right;
     uzel* parent;
     bool color; //true - RED, false - BLACK
+    uint16_t height=1;
 };
 
 uzel* grandparent(uzel* point) {
@@ -75,10 +76,10 @@ class BinSearchTree {
                     return point;
                 }
                 else if (numb < point->key) {
-                    return find(numb, point->left);
+                    find(numb, point->left);
                 }
                 else if (numb > point->key) {
-                    return find(numb, point->right);
+                    find(numb, point->right);
                 }
                 else {
                     return NULL;
@@ -117,7 +118,7 @@ class BinSearchTree {
             }
         }
 
-        void erase(numb, point) {
+        void erase(int numb, uzel* point) {
             if (point == NULL) {
                 return;
             }
